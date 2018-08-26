@@ -1,0 +1,11 @@
+--- a/SConstruct
++++ b/SConstruct
+@@ -435,7 +435,7 @@
+ else:
+   TEST_EXES = [ os.path.join('test', '%s' % (prog)) for prog in TEST_PROGRAMS ]
+ 
+-env.AlwaysBuild(env.Alias('check', TEST_EXES, sys.executable + ' build/check.py',
++env.AlwaysBuild(env.Alias('check', TEST_EXES, 'datefudge "2015-01-01 00:00" ' + sys.executable + ' build/check.py',
+                           ENV={'PATH' : os.environ['PATH']}))
+ 
+ # Find the (dynamic) library in this directory
